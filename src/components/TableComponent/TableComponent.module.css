@@ -1,5 +1,6 @@
+/* TableComponent.module.css */
 
-table {
+.table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
@@ -8,10 +9,18 @@ table {
 th, td {
     border: 1px solid #ddd;
     padding: 8px;
-    text-align: left;
+    text-align: center;
 }
 
 th {
     background-color: #4caf50;
     color: #fff;
+}
+
+.calculation {
+    color: #007bff; /* Blaue Farbe für Berechnungen */
+}
+
+.sum {
+    color: #28a745; /* Grüne Farbe für die Summe */
 }
