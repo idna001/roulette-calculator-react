@@ -1,4 +1,3 @@
-/* TableComponent.module.css */
 
 .table {
     width: 100%;
@@ -18,9 +17,9 @@ th {
 }
 
 .calculation {
-    color: #007bff; /* Blaue Farbe für Berechnungen */
+    color: #007bff;
 }
 
 .sum {
-    color: #28a745; /* Grüne Farbe für die Summe */
+    color: #28a745;
 }

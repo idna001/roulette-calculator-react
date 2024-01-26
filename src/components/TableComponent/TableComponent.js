@@ -2,6 +2,10 @@
 import React from 'react';
 import styles from './TableComponent.module.css';
 
+const calculateCrossSum = (number) => {
+    return number.toString().split('').reduce((acc, digit) => acc + parseInt(digit), 0);
+};
+
 const TableComponent = ({ history }) => {
     return (
         <table className={styles.table}>
@@ -14,28 +18,24 @@ const TableComponent = ({ history }) => {
             </thead>
             <tbody>
             {history.map((entry, index) => (
-                <tr key={index}>
-                    <td>{entry.number1}</td>
-                    <td>{entry.number2}</td>
-                    <td>{entry.sum - 1}</td>
-                    <td style={{ backgroundColor: getColor(entry.sum) }}>{entry.sum}</td>
-                    <td>{entry.sum + 1}</td>
-                </tr>
+                <React.Fragment key={index}>
+                    <tr>
+                        <td rowSpan="2">{entry.number1}</td>
+                        <td rowSpan="2">{entry.number2}</td>
+                        <td className={styles.calculation}>{entry.sum - 1}</td>
+                        <td className={styles.sum}>{entry.sum}</td>
+                        <td className={styles.calculation}>{entry.sum + 1}</td>
+                    </tr>
+                    <tr>
+                        <td>{calculateCrossSum(entry.sum - 1)}</td>
+                        <td>{calculateCrossSum(entry.sum)}</td>
+                        <td>{calculateCrossSum(entry.sum + 1)}</td>
+                    </tr>
+                </React.Fragment>
             ))}
             </tbody>
         </table>
     );
-};
-
-// Funktion, um Farbe basierend auf der Summe zu bestimmen
-const getColor = (sum) => {
-    if (sum < 0) {
-        return 'red'; // Setze die Farbe auf Rot, wenn die Summe negativ ist
-    } else if (sum > 0) {
-        return 'green'; // Setze die Farbe auf Grün, wenn die Summe positiv ist
-    } else {
-        return 'black'; // Setze die Farbe auf Schwarz, wenn die Summe null ist
-    }
 };
 
 export default TableComponent;
