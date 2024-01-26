@@ -1,3 +1,4 @@
+// InputComponent.js
 import React, { useState } from 'react';
 import styles from './InputComponent.module.css';
 
@@ -12,6 +13,8 @@ const InputComponent = ({ onSubmit }) => {
         if (validateInput(number1) && validateInput(number2)) {
             onSubmit(number1, number2);
             setError('');
+            setNumber1('');
+            setNumber2('');
         } else {
             setError('Please enter numbers between 1 and 36 for both inputs.');
         }
@@ -23,32 +26,40 @@ const InputComponent = ({ onSubmit }) => {
     };
 
     return (
-        <form className={styles.formContainer} onSubmit={handleSubmit}>
-            <label>
-                Number 1:
+        <div className={styles.inputContainer}>
+            <h2 className={styles.title}>Roulette Calc</h2>
+            <form className={styles.formContainer} onSubmit={handleSubmit}>
+                <label htmlFor="number1">Number 1:</label>
                 <input
                     type="number"
+                    id="number1"
                     value={number1}
                     onChange={(e) => setNumber1(e.target.value)}
                     required
                     min="1"
                     max="36"
+                    className={styles.input}
                 />
-            </label>
-            <label>
-                Number 2:
+
+                <label htmlFor="number2">Number 2:</label>
                 <input
                     type="number"
+                    id="number2"
                     value={number2}
                     onChange={(e) => setNumber2(e.target.value)}
                     required
                     min="1"
                     max="36"
+                    className={styles.input}
                 />
-            </label>
-            <button type="submit">Submit</button>
-            {error && <p className={styles.error}>{error}</p>}
-        </form>
+
+                <button type="submit" className={styles.submitButton}>
+                    Submit
+                </button>
+
+                {error && <p className={styles.error}>{error}</p>}
+            </form>
+        </div>
     );
 };
 

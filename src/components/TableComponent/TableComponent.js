@@ -11,8 +11,8 @@ const TableComponent = ({ history }) => {
         <table className={styles.table}>
             <thead>
             <tr>
-                <th>Number 1</th>
-                <th>Number 2</th>
+                <th>Nr 1</th>
+                <th>Nr 2</th>
                 <th colSpan="3">Calculation</th>
             </tr>
             </thead>
