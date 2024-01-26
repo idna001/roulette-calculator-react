@@ -1,6 +1,8 @@
+// TableComponent.js
 import React from 'react';
 import styles from './TableComponent.module.css';
-const TableComponent = ({ result }) => {
+
+const TableComponent = ({ history }) => {
     return (
         <table className={styles.table}>
             <thead>
@@ -11,11 +13,13 @@ const TableComponent = ({ result }) => {
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>{result.number1}</td>
-                <td>{result.number2}</td>
-                <td>{result.sum}</td>
-            </tr>
+            {history.map((entry, index) => (
+                <tr key={index}>
+                    <td>{entry.number1}</td>
+                    <td>{entry.number2}</td>
+                    <td>{entry.sum}</td>
+                </tr>
+            ))}
             </tbody>
         </table>
     );
