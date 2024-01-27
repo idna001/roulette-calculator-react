@@ -17,8 +17,8 @@ const App = () => {
     const handleFormSubmit = (number1, number2) => {
         const sum = parseFloat(number1) + parseFloat(number2);
         const newEntry = { number1, number2, sum };
-        setHistory([newEntry, ...history]);
 
+        setHistory([newEntry, ...history]);
         localStorage.setItem('history', JSON.stringify([newEntry, ...history]));
     };
 
@@ -28,13 +28,15 @@ const App = () => {
     };
 
     return (
-        <div className={styles.app}>
-            <h1 className={styles.title}>Number Cruncher</h1>
+        <div className='app'>
+            <h1 className='title'>Number Cruncher</h1>
             <InputComponent onSubmit={handleFormSubmit} />
             {history.length > 0 && <TableComponent history={history} />}
-            <button onClick={handleClearStorage} className={styles.clearButton}>
-                Clear History
-            </button>
+            {history.length > 0 && (
+                <button onClick={handleClearStorage} className='clearButton'>
+                    Clear History
+                </button>
+            )}
         </div>
     );
 };

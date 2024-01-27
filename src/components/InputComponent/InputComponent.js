@@ -27,9 +27,8 @@ const InputComponent = ({ onSubmit }) => {
 
     return (
         <div className={styles.inputContainer}>
-            <h2 className={styles.title}>Roulette Calc</h2>
             <form className={styles.formContainer} onSubmit={handleSubmit}>
-                <label htmlFor="number1">Number 1:</label>
+                <label htmlFor="number1" className='label'>Number 1:</label>
                 <input
                     type="number"
                     id="number1"
