@@ -32,7 +32,7 @@ body {
 .clearButton {
   margin-top: 20px;
   padding: 10px;
-  background-color: #dc3545;
+  background-color: #d6c077;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -41,7 +41,7 @@ body {
 }
 
 .clearButton:hover {
-  background-color: #c82333;
+  background-color: #93632a;
 }
 
 
@@ -79,7 +79,7 @@ label {
 
 .submitButton {
   padding: 10px;
-  background-color: #4caf50;
+  background-color: #d6c077;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -87,7 +87,7 @@ label {
 }
 
 .submitButton:hover {
-  background-color: #45a049;
+  background-color: #93632a;
 }
 
 .error {
@@ -111,7 +111,7 @@ th, td {
 }
 
 th {
-  background-color: #4caf50;
+  background-color: #d6c077;
   color: #fff;
 }
 
@@ -120,5 +120,11 @@ th {
 }
 
 .sum {
-  color: #28a745;
+  color: #d6c077;
+}
+.logo {
+  height: 60px;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 20px;
 }

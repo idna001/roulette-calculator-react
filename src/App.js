@@ -29,6 +29,7 @@ const App = () => {
 
     return (
         <div className='app'>
+            <img src={require('./img/logo.png')} alt="logo" className='logo' />
             <h1 className='title'>Number Cruncher</h1>
             <InputComponent onSubmit={handleFormSubmit} />
             {history.length > 0 && <TableComponent history={history} />}
