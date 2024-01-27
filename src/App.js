@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import InputComponent from './components/InputComponent/InputComponent';
 import TableComponent from './components/TableComponent/TableComponent';
-import styles from './index.css';
 
 const App = () => {
     const [history, setHistory] = useState([]);
