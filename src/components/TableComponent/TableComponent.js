@@ -14,12 +14,11 @@ const TableComponent = ({ history }) => {
     return (
         <table className={styles.table}>
             <thead>
-            <tr>
-                <th>Nr 1</th>
-                <th>Nr 2</th>
-                <th colSpan="4">Calculation</th>
-
-            </tr>
+                <tr>
+                    <th>Nr 1</th>
+                    <th>Nr 2</th>
+                    <th colSpan="4">Next lucky numbers</th>
+                </tr>
             </thead>
             <tbody>
             {history.map((entry, index) => (
