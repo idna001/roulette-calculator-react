@@ -1,4 +1,3 @@
-// TableComponent.js
 import React from 'react';
 import styles from './TableComponent.module.css';
 
