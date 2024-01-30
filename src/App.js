@@ -14,7 +14,10 @@ const App = () => {
     }, []);
 
     const handleFormSubmit = (number1, number2) => {
-        const sum = parseFloat(number1) + parseFloat(number2);
+        let sum = parseFloat(number1) + parseFloat(number2);
+        if (sum > 36) {
+            sum = Math.floor(Math.random() * 37);
+        }
         const newEntry = { number1, number2, sum };
 
         setHistory([newEntry, ...history]);
