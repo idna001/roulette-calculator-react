@@ -22,7 +22,7 @@ const InputComponent = ({ onSubmit }) => {
 
     const validateInput = (value) => {
         const number = parseFloat(value);
-        return !isNaN(number) && number >= 1 && number <= 36;
+        return !isNaN(number) && number >= 0 && number <= 36;
     };
 
     return (
@@ -35,7 +35,7 @@ const InputComponent = ({ onSubmit }) => {
                     value={number1}
                     onChange={(e) => setNumber1(e.target.value)}
                     required
-                    min="1"
+                    min="0"
                     max="36"
                     className={styles.input}
                 />
@@ -47,7 +47,7 @@ const InputComponent = ({ onSubmit }) => {
                     value={number2}
                     onChange={(e) => setNumber2(e.target.value)}
                     required
-                    min="1"
+                    min="0"
                     max="36"
                     className={styles.input}
                 />

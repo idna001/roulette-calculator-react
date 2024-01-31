@@ -15,14 +15,14 @@ const App = () => {
 
     const handleFormSubmit = (number1, number2) => {
         let sum = parseFloat(number1) + parseFloat(number2);
-        if (sum > 36) {
-            sum = Math.floor(Math.random() * 37);
+        if (sum > 36 || sum === 0) {
+            sum = Math.floor(Math.random() * 36) + 1;
         }
         const newEntry = { number1, number2, sum };
-
         setHistory([newEntry, ...history]);
         localStorage.setItem('history', JSON.stringify([newEntry, ...history]));
     };
+
 
     const handleClearStorage = () => {
         localStorage.removeItem('history');
