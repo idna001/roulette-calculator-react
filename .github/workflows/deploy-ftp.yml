@@ -1,35 +1,34 @@
 on:
-  pull_request:
-    types: [closed]
+  push:
     branches:
       - master
+
 name: 🚀FTP Deploy website
 
 jobs:
-      web-deploy:
-        name: 🎉 Deploy
-        runs-on: ubuntu-latest
-        steps:
-          - name: 🚚 Get latest code
-            uses: actions/checkout@v2
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
 
-          - name: Use Node.js 16
-            uses: actions/setup-node@v2
-            with:
-              node-version: '16'
+      - name: Use Node.js 16
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
 
-          - name: 🔨 Build Project
-            run: |
-              npm install
-              npm run build
+      - name: Install lftp
+        run: sudo apt-get install lftp
 
-          - name: List output files
-            run: find build/ -print
+      - name: 🔨 Build Project
+        run: |
+          npm install
+          npm run build
 
-          - name: 📂 Sync files
-            uses: airvzxf/ftp-deployment-action@latest
-            with:
-                server: ${{ secrets.FTP_SERVER }}
-                user: ${{ secrets.FTP_USERNAME }}
-                password: ${{ secrets.FTP_PASSWORD }}
-                remote_dir: ./roulette
+      - name: List output files
+        run: find build/ -type f -exec echo {} \;
+
+      - name: 📂 Sync files
+        run: |
+          lftp -c "open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }} && mirror -R --only-newer --exclude-glob .git* --exclude .github/ ./build/ ./roulette"
