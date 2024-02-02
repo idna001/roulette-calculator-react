@@ -18,7 +18,12 @@ const App = () => {
         if (sum > 36 || sum === 0) {
             sum = Math.floor(Math.random() * 36) + 1;
         }
+        const isDuplicate = history.some(entry => entry.number1 === number1 && entry.number2 === number2);
+        if (isDuplicate) {
+            sum = Math.floor(Math.random() * 36) + 1;
+        }
         const newEntry = { number1, number2, sum };
+
         setHistory([newEntry, ...history]);
         localStorage.setItem('history', JSON.stringify([newEntry, ...history]));
     };
