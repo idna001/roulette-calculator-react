@@ -18,8 +18,8 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Install lftp
-        run: sudo apt-get install lftp
+      - name: Install rsync
+        run: sudo apt-get install rsync
 
       - name: 🔨 Build Project
         run: |
@@ -29,6 +29,6 @@ jobs:
       - name: List output files
         run: find build/ -type f -exec echo {} \;
 
-      - name: 📂 Sync files
+      - name: 📂 Sync files with rsync
         run: |
-          lftp -c "open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }} && mirror -R --only-newer --exclude-glob .git* --exclude .github/ ./build/ ./roulette"
+          rsync -av --delete --exclude='.git*' --exclude='.github/' ./build/ ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}:./roulette/
