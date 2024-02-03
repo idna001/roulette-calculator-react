@@ -31,4 +31,4 @@ jobs:
 
       - name: 📂 Sync files with rsync
         run: |
-          rsync -av --delete --exclude='node_modules' --exclude='.git*' --exclude='.github/' ./build/ ${{ secrets.FTP_USERNAME }}@${{ secrets.FTP_SERVER }}:./roulette/
+          rsync -av --delete --exclude='node_modules' --exclude='.git*' --exclude='.github/' ./build/ ${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}@${{ secrets.FTP_SERVER }}:./roulette/
