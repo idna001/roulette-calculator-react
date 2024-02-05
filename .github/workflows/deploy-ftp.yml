@@ -1,8 +1,8 @@
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches:
       - master
-
 name: 🚀FTP Deploy website
 
 jobs:
@@ -18,17 +18,19 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Install rsync
-        run: sudo apt-get install rsync
-
       - name: 🔨 Build Project
         run: |
           npm install
           npm run build
 
       - name: List output files
-        run: find build/ -type f -exec echo {} \;
+        run: find build/ -print
 
-      - name: 📂 Sync files with rsync
-        run: |
-          rsync -av --delete --exclude='node_modules' --exclude='.git*' --exclude='.github/' ./build/ ${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}@${{ secrets.FTP_SERVER }}:./roulette/
+      - name: 📂 Sync files
+        uses: airvzxf/ftp-deployment-action@latest
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local_dir: ./build/
+          delete: "false"
