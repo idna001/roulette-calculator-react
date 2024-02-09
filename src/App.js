@@ -5,13 +5,17 @@ import TableComponent from './components/TableComponent/TableComponent';
 
 const App = () => {
     const [history, setHistory] = useState([]);
-
+    const [results, setResults] = useState([]);
     useEffect(() => {
         const storedHistory = JSON.parse(localStorage.getItem('history'));
         if (storedHistory) {
             setHistory(storedHistory);
         }
     }, []);
+
+    const generateRandomNumber = () => {
+        return Math.floor(Math.random() * 36) + 1;
+    };
 
     const handleFormSubmit = (number1, number2) => {
         let sum = parseFloat(number1) + parseFloat(number2);
@@ -22,8 +26,18 @@ const App = () => {
         if (isDuplicate) {
             sum = Math.floor(Math.random() * 36) + 1;
         }
-        const newEntry = { number1, number2, sum };
 
+        const tempResults = [];
+        for (let i = 0; i < 4; i++) {
+            tempResults.push(generateRandomNumber());
+        }
+
+        const newEntry = {
+            number1: number1,
+            number2: number2,
+            sum: sum,
+            tempResults: tempResults
+        };
         setHistory([newEntry, ...history]);
         localStorage.setItem('history', JSON.stringify([newEntry, ...history]));
     };

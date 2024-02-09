@@ -5,10 +5,6 @@ const calculateCrossSum = (number) => {
     return number.toString().split('').reduce((acc, digit) => acc + parseInt(digit), 0);
 };
 
-const generateRandomNumber = () => {
-    return Math.floor(Math.random() * 36) + 1;
-};
-
 const TableComponent = ({ history }) => {
     return (
         <table className={styles.table}>
@@ -35,10 +31,10 @@ const TableComponent = ({ history }) => {
                         <td colSpan="1">{calculateCrossSum(entry.sum) + 1}</td>
                     </tr>
                     <tr>
-                        <td className={styles.sum}>{generateRandomNumber()}</td>
-                        <td className={styles.sum}>{generateRandomNumber()}</td>
-                        <td className={styles.sum}>{generateRandomNumber()}</td>
-                        <td className={styles.sum}>{generateRandomNumber()}</td>
+                        <td className={styles.sum}>{entry.tempResults[0]}</td>
+                        <td className={styles.sum}>{entry.tempResults[1]}</td>
+                        <td className={styles.sum}>{entry.tempResults[2]}</td>
+                        <td className={styles.sum}>{entry.tempResults[3]}</td>
                     </tr>
                     <tr>
                         <td colSpan="7"></td>
