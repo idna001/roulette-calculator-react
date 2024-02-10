@@ -5,7 +5,6 @@ import TableComponent from './components/TableComponent/TableComponent';
 
 const App = () => {
     const [history, setHistory] = useState([]);
-    const [results, setResults] = useState([]);
     useEffect(() => {
         const storedHistory = JSON.parse(localStorage.getItem('history'));
         if (storedHistory) {
