@@ -53,13 +53,18 @@ const App = () => {
             <img src={require('./img/logo.png')} alt="logo" className='logo' />
             <h1 className='title'>Number Cruncher</h1>
             <InputComponent onSubmit={handleFormSubmit} />
-           {/* {history.length > 0 && <TableComponent history={history} />}
+            {history.length > 0 &&
+/*
+                <TableComponent history={history} />
+*/            <CatComponent history={history}/>
+
+
+            }
             {history.length > 0 && (
                 <button onClick={handleClearStorage} className='clearButton'>
                     Clear History
                 </button>
-            )}*/}
-            <CatComponent />
+            )}
         </div>
     );
 };
