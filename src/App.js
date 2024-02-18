@@ -58,7 +58,6 @@ const App = () => {
                 <TableComponent history={history} />
 */            <CatComponent history={history}/>
 
-
             }
             {history.length > 0 && (
                 <button onClick={handleClearStorage} className='clearButton'>
