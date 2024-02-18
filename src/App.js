@@ -18,7 +18,6 @@ const App = () => {
     };
 
     const handleFormSubmit = (number1, number2) => {
-        // Speichere die beiden eingegebenen Zahlen im localStorage
         localStorage.setItem('number1', number1);
         localStorage.setItem('number2', number2);
 
@@ -44,8 +43,6 @@ const App = () => {
         setHistory([newEntry, ...history]);
         localStorage.setItem('history', JSON.stringify([newEntry, ...history]));
     };
-
-
 
     const handleClearStorage = () => {
         localStorage.removeItem('history');

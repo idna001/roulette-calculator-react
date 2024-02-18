@@ -9,9 +9,11 @@ const CatComponent = ({ history }) => {
     const [numbers, setNumbers] = useState([]);
 
     useEffect(() => {
-        if (history.length > 0) {
-            const newNumbers = Array.from({ length: 7 }, generateRandomNumber);
-            setNumbers(newNumbers);
+            const storedHistory = JSON.parse(localStorage.getItem('history'));
+        if (storedHistory) {
+            const lastEntry = storedHistory[0];
+            const lastNumbers = lastEntry.numbers;
+            setNumbers(lastNumbers);
         }
     }, [history]);
 
