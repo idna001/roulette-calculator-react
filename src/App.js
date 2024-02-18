@@ -18,29 +18,33 @@ const App = () => {
     };
 
     const handleFormSubmit = (number1, number2) => {
-        let sum = parseFloat(number1) + parseFloat(number2);
-        if (sum > 36 || sum === 0) {
-            sum = Math.floor(Math.random() * 36) + 1;
-        }
-        const isDuplicate = history.some(entry => entry.number1 === number1 && entry.number2 === number2);
-        if (isDuplicate) {
-            sum = Math.floor(Math.random() * 36) + 1;
-        }
+        // Speichere die beiden eingegebenen Zahlen im localStorage
+        localStorage.setItem('number1', number1);
+        localStorage.setItem('number2', number2);
 
-        const tempResults = [];
-        for (let i = 0; i < 4; i++) {
-            tempResults.push(generateRandomNumber());
-        }
+        const sum = parseFloat(number1) + parseFloat(number2);
+        const digitSum = Array.from(sum.toString()).reduce((acc, digit) => acc + parseInt(digit), 0);
+
+        const randomNumber1 = Math.floor(Math.random() * sum) + 1;
+        const randomNumber2 = Math.floor(Math.random() * sum) + 1;
+
+        const minNumber = Math.min(parseFloat(number1), parseFloat(number2));
+        const maxNumber = Math.max(parseFloat(number1), parseFloat(number2));
+        const randomNumber3 = Math.floor(Math.random() * (maxNumber - minNumber - 1)) + minNumber + 1;
+
+        const numbers = [sum, digitSum, randomNumber1, randomNumber2, randomNumber3];
 
         const newEntry = {
             number1: number1,
             number2: number2,
             sum: sum,
-            tempResults: tempResults
+            digitSum: digitSum,
+            numbers: numbers
         };
         setHistory([newEntry, ...history]);
         localStorage.setItem('history', JSON.stringify([newEntry, ...history]));
     };
+
 
 
     const handleClearStorage = () => {
@@ -53,12 +57,13 @@ const App = () => {
             <img src={require('./img/logo.png')} alt="logo" className='logo' />
             <h1 className='title'>Number Cruncher</h1>
             <InputComponent onSubmit={handleFormSubmit} />
-            {history.length > 0 &&
-/*
-                <TableComponent history={history} />
-*/            <CatComponent history={history}/>
 
-            }
+{/*
+                <TableComponent history={history} />
+*/}
+            <CatComponent history={history}/>
+
+
             {history.length > 0 && (
                 <button onClick={handleClearStorage} className='clearButton'>
                     Clear History
