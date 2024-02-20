@@ -6,6 +6,8 @@ import CatComponent from "./components/CatComponent/CatComponent";
 
 const App = () => {
     const [history, setHistory] = useState([]);
+    const [numbers, setNumbers] = useState([]);
+
     useEffect(() => {
         const storedHistory = JSON.parse(localStorage.getItem('history'));
         if (storedHistory) {
@@ -18,9 +20,6 @@ const App = () => {
     };
 
     const handleFormSubmit = (number1, number2) => {
-        localStorage.setItem('number1', number1);
-        localStorage.setItem('number2', number2);
-
         const sum = parseFloat(number1) + parseFloat(number2);
         const digitSum = Array.from(sum.toString()).reduce((acc, digit) => acc + parseInt(digit), 0);
 
@@ -30,22 +29,30 @@ const App = () => {
         const minNumber = Math.min(parseFloat(number1), parseFloat(number2));
         const maxNumber = Math.max(parseFloat(number1), parseFloat(number2));
         const randomNumber3 = Math.floor(Math.random() * (maxNumber - minNumber - 1)) + minNumber + 1;
-
         const numbers = [sum, digitSum, randomNumber1, randomNumber2, randomNumber3];
 
         const newEntry = {
-            number1: number1,
-            number2: number2,
             sum: sum,
             digitSum: digitSum,
             numbers: numbers
         };
-        setHistory([newEntry, ...history]);
-        localStorage.setItem('history', JSON.stringify([newEntry, ...history]));
+        localStorage.setItem('history', JSON.stringify([newEntry]));
+
+        const existingNumbers = JSON.parse(localStorage.getItem('numbers')) || [];
+        const updatedNumbers = [{ number1, number2 }, ...existingNumbers];
+
+        localStorage.setItem('numbers', JSON.stringify(updatedNumbers));
     };
+
+
+
+
+
 
     const handleClearStorage = () => {
         localStorage.removeItem('history');
+        localStorage.removeItem('number');
+
         setHistory([]);
     };
 
