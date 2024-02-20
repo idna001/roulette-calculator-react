@@ -9,7 +9,7 @@ const CatComponent = ({ history }) => {
     const [numbers, setNumbers] = useState([]);
 
     useEffect(() => {
-            const storedHistory = JSON.parse(localStorage.getItem('history'));
+        const storedHistory = JSON.parse(localStorage.getItem('history'));
         if (storedHistory) {
             const lastEntry = storedHistory[0];
             const lastNumbers = lastEntry.numbers;
