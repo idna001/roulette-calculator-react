@@ -7,13 +7,15 @@ import CatComponent from "./components/CatComponent/CatComponent";
 const App = () => {
     const [history, setHistory] = useState([]);
     const [numbers, setNumbers] = useState([]);
+    const [refreshKey, setRefreshKey] = useState(0); // Zustand für den Komponenten-Neu-Render
+
 
     useEffect(() => {
         const storedHistory = JSON.parse(localStorage.getItem('history'));
         if (storedHistory) {
             setHistory(storedHistory);
         }
-    }, []);
+    }, [refreshKey]);
 
     const generateRandomNumber = () => {
         return Math.floor(Math.random() * 36) + 1;
@@ -42,20 +44,26 @@ const App = () => {
         const updatedNumbers = [{ number1, number2 }, ...existingNumbers];
 
         localStorage.setItem('numbers', JSON.stringify(updatedNumbers));
+        setRefreshKey(prevKey => prevKey + 1);
+
     };
-
-
-
-
-
 
     const handleClearStorage = () => {
         localStorage.removeItem('history');
-        localStorage.removeItem('number');
-
+        localStorage.removeItem('numbers');
         setHistory([]);
-    };
+        setNumbers([]);
+        setTimeout(() => {
+            setNumbers([]);
+        }, 100); // Wartezeit von 100 Millisekunden (kann angepasst werden)
 
+        setRefreshKey(prevKey => prevKey + 1);
+    };
+// 3. nachbarzahl
+    // 4. nachbarzahl links
+    // 5. nachbarzahl rechts von der 6
+    // 6. nachbarzahl links von quer summe
+    // 7. zufallszahl zwischen 1 und quer summe
     return (
         <div className='app'>
             <img src={require('./img/logo.png')} alt="logo" className='logo' />
@@ -65,8 +73,7 @@ const App = () => {
 {/*
                 <TableComponent history={history} />
 */}
-            <CatComponent history={history}/>
-
+            <CatComponent history={history} refreshKey={refreshKey} />
 
             {history.length > 0 && (
                 <button onClick={handleClearStorage} className='clearButton'>
