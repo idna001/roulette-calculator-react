@@ -5,17 +5,20 @@ const generateRandomNumber = () => {
     return Math.floor(Math.random() * 36) + 1;
 };
 
-const CatComponent = ({ history }) => {
-    const [numbers, setNumbers] = useState([]);
 
+const CatComponent = ({ history, refreshKey }) => {
+    const [numbers, setNumbers] = useState([]);
+    console.log(refreshKey);
     useEffect(() => {
         const storedHistory = JSON.parse(localStorage.getItem('history'));
+
         if (storedHistory) {
             const lastEntry = storedHistory[0];
             const lastNumbers = lastEntry.numbers;
             setNumbers(lastNumbers);
         }
-    }, [history]);
+
+    }, [refreshKey]);
 
     return (
         <div>
@@ -30,5 +33,4 @@ const CatComponent = ({ history }) => {
         </div>
     );
 };
-
 export default CatComponent;
