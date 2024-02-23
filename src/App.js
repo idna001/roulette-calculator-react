@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import InputComponent from './components/InputComponent/InputComponent';
 import TableComponent from './components/TableComponent/TableComponent';
 import CatComponent from "./components/CatComponent/CatComponent";
+import {numberArray} from "./data/numberArray";
 
 const App = () => {
     const [history, setHistory] = useState([]);
@@ -21,31 +22,45 @@ const App = () => {
         return Math.floor(Math.random() * 36) + 1;
     };
 
+    const searchMatchingNumbers = (sum) => {
+        const matchingNumbers = [];
+        for (const key in numberArray) {
+            const [num1, num2] = numberArray[key];
+            if (parseInt(key) === sum) {
+                matchingNumbers.push(num1, num2);
+            }
+        }
+        return matchingNumbers;
+    }
+
     const handleFormSubmit = (number1, number2) => {
         const sum = parseFloat(number1) + parseFloat(number2);
+        const matchingNumbers = searchMatchingNumbers(sum);
+        const thirdNumber = matchingNumbers[0];
+        const fourthNumber = matchingNumbers[1];
+
         const digitSum = Array.from(sum.toString()).reduce((acc, digit) => acc + parseInt(digit), 0);
+        const matchingNumbersQueer = searchMatchingNumbers(digitSum);
+        const fifth = matchingNumbersQueer[0];
+        const sixth = matchingNumbersQueer[1];
 
-        const randomNumber1 = Math.floor(Math.random() * sum) + 1;
-        const randomNumber2 = Math.floor(Math.random() * sum) + 1;
+        const randomNumber = generateRandomNumber();
 
-        const minNumber = Math.min(parseFloat(number1), parseFloat(number2));
-        const maxNumber = Math.max(parseFloat(number1), parseFloat(number2));
-        const randomNumber3 = Math.floor(Math.random() * (maxNumber - minNumber - 1)) + minNumber + 1;
-        const numbers = [sum, digitSum, randomNumber1, randomNumber2, randomNumber3];
-
+        const numbers = [sum, digitSum, thirdNumber, fourthNumber, fifth, sixth, randomNumber];
         const newEntry = {
             sum: sum,
             digitSum: digitSum,
             numbers: numbers
         };
+
         localStorage.setItem('history', JSON.stringify([newEntry]));
 
+        // Aktualisieren der State-Variablen oder Auslösen eines Rerenders
         const existingNumbers = JSON.parse(localStorage.getItem('numbers')) || [];
         const updatedNumbers = [{ number1, number2 }, ...existingNumbers];
 
         localStorage.setItem('numbers', JSON.stringify(updatedNumbers));
         setRefreshKey(prevKey => prevKey + 1);
-
     };
 
     const handleClearStorage = () => {
