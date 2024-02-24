@@ -21,15 +21,15 @@ const CatComponent = ({ history, refreshKey }) => {
     }, [refreshKey]);
 
     return (
-        <div>
-            <div>
+        <div className={styles.catOuter}>
+
                 {Array.from({ length: 7 }, (_, index) => (
                     <div className={styles.catContainer} key={index}>
                         <img src={require('../../img/cat.png')} className={styles.catImage} alt={`Katze ${index + 1}`} />
                         {numbers.length > 0 && <p className={styles.catNumber}>{numbers[index]}</p>}
                     </div>
                 ))}
-            </div>
+
         </div>
     );
 };

@@ -34,7 +34,10 @@ const App = () => {
     }
 
     const handleFormSubmit = (number1, number2) => {
-        const sum = parseFloat(number1) + parseFloat(number2);
+        let sum = parseFloat(number1) + parseFloat(number2);
+        if (sum > 36) {
+            sum = generateRandomNumber();
+        }
         const matchingNumbers = searchMatchingNumbers(sum);
         const thirdNumber = matchingNumbers[0];
         const fourthNumber = matchingNumbers[1];
