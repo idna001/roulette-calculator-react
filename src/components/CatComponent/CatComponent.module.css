@@ -8,6 +8,13 @@
     display: inline-block;
 }
 
+.catOuter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
 .catNumber {
     position: absolute;
     top: 25%;
