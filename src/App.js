@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import InputComponent from './components/InputComponent/InputComponent';
 import TableComponent from './components/TableComponent/TableComponent';
 import CatComponent from "./components/CatComponent/CatComponent";
+import HistoryComponent from "./components/HistoryComponent/HistoryComponent";
 import {numberArray} from "./data/numberArray";
 
 const App = () => {
@@ -35,7 +36,7 @@ const App = () => {
 
     const handleFormSubmit = (number1, number2) => {
         let sum = parseFloat(number1) + parseFloat(number2);
-        if (sum > 36) {
+        if (sum > 36 || sum < 10) {
             sum = generateRandomNumber();
         }
         const matchingNumbers = searchMatchingNumbers(sum);
@@ -46,9 +47,7 @@ const App = () => {
         const matchingNumbersQueer = searchMatchingNumbers(digitSum);
         const fifth = matchingNumbersQueer[0];
         const sixth = matchingNumbersQueer[1];
-
         const randomNumber = generateRandomNumber();
-
         const numbers = [sum, digitSum, thirdNumber, fourthNumber, fifth, sixth, randomNumber];
         const newEntry = {
             sum: sum,
@@ -57,8 +56,6 @@ const App = () => {
         };
 
         localStorage.setItem('history', JSON.stringify([newEntry]));
-
-        // Aktualisieren der State-Variablen oder Auslösen eines Rerenders
         const existingNumbers = JSON.parse(localStorage.getItem('numbers')) || [];
         const updatedNumbers = [{ number1, number2 }, ...existingNumbers];
 
@@ -71,13 +68,9 @@ const App = () => {
         localStorage.removeItem('numbers');
         setHistory([]);
         setNumbers([]);
-        setTimeout(() => {
-            setNumbers([]);
-        }, 100); // Wartezeit von 100 Millisekunden (kann angepasst werden)
-
         setRefreshKey(prevKey => prevKey + 1);
     };
-// 3. nachbarzahl
+    // 3. nachbarzahl
     // 4. nachbarzahl links
     // 5. nachbarzahl rechts von der 6
     // 6. nachbarzahl links von quer summe
@@ -87,13 +80,13 @@ const App = () => {
             <img src={require('./img/logo.png')} alt="logo" className='logo' />
             <h1 className='title'>Number Cruncher</h1>
             <InputComponent onSubmit={handleFormSubmit} />
-
+            <HistoryComponent numbers={numbers} />
 {/*
                 <TableComponent history={history} />
 */}
             <CatComponent history={history} refreshKey={refreshKey} />
 
-            {history.length > 0 && (
+            {numbers.length > 0 && (
                 <button onClick={handleClearStorage} className='clearButton'>
                     Clear History
                 </button>
