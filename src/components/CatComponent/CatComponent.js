@@ -8,7 +8,6 @@ const generateRandomNumber = () => {
 
 const CatComponent = ({ history, refreshKey }) => {
     const [numbers, setNumbers] = useState([]);
-    console.log(refreshKey);
     useEffect(() => {
         const storedHistory = JSON.parse(localStorage.getItem('history'));
 
