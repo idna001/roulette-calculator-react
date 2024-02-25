@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../TableComponent/TableComponent.module.css';
 
-const HistoryComponent = () => {
+const HistoryComponent = ({numbers, refreshKey}) => {
     const [numberPairs, setNumberPairs] = useState([]);
 
     useEffect(() => {
         const storedNumbers = JSON.parse(localStorage.getItem('numbers')) || [];
         setNumberPairs(storedNumbers);
-    }, []); // Wird nur einmal beim Laden der Komponente ausgeführt
+    }, [refreshKey]);
 
     return (
         <div>
