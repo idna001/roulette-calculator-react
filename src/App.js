@@ -80,7 +80,7 @@ const App = () => {
             <img src={require('./img/logo.png')} alt="logo" className='logo' />
             <h1 className='title'>Number Cruncher</h1>
             <InputComponent onSubmit={handleFormSubmit} />
-            <HistoryComponent numbers={numbers} />
+            <HistoryComponent numbers={numbers} refreshKey={refreshKey} />
 {/*
                 <TableComponent history={history} />
 */}
