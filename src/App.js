@@ -80,17 +80,21 @@ const App = () => {
             <img src={require('./img/logo.png')} alt="logo" className='logo' />
             <h1 className='title'>Number Cruncher</h1>
             <InputComponent onSubmit={handleFormSubmit} />
-            <HistoryComponent numbers={numbers} refreshKey={refreshKey} />
 {/*
                 <TableComponent history={history} />
 */}
             <CatComponent history={history} refreshKey={refreshKey} />
 
-            {numbers.length > 0 && (
-                <button onClick={handleClearStorage} className='clearButton'>
-                    Clear History
-                </button>
+            {history.length > 0 && (
+                <React.Fragment>
+                    <HistoryComponent numbers={numbers} refreshKey={refreshKey} />
+
+                    <button onClick={handleClearStorage} className='clearButton'>
+                        Clear History
+                    </button>
+                </React.Fragment>
             )}
+
         </div>
     );
 };

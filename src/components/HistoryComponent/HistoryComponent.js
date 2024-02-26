@@ -11,13 +11,13 @@ const HistoryComponent = ({numbers, refreshKey}) => {
 
     return (
         <div>
-            <h2>Number Pairs:</h2>
+            <h2>History Pairs:</h2>
             <table className={styles.table}>
                 <thead>
-                <tr>
-                    <th>Number 1</th>
-                    <th>Number 2</th>
-                </tr>
+                    <tr>
+                        <th>Number 1</th>
+                        <th>Number 2</th>
+                    </tr>
                 </thead>
                 <tbody>
                 {numberPairs.map((pair, index) => (
