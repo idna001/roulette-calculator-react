@@ -2,7 +2,12 @@
     width: 200px;
     height: 200px;
 }
-
+@media (max-width: 768px) {
+    .catImage {
+        width: 150px;
+        height: 150px;
+    }
+}
 .catContainer {
     position: relative;
     display: inline-block;
