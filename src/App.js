@@ -35,6 +35,10 @@ const App = () => {
     }
 
     const handleFormSubmit = (number1, number2) => {
+        const soundEffect = new Audio();
+        soundEffect.autoplay = true;
+        soundEffect.src = '/audio/cat-meow.mp3'
+        soundEffect.play()
         let sum = parseFloat(number1) + parseFloat(number2);
         if (sum > 36 || sum < 10) {
             sum = generateRandomNumber();
