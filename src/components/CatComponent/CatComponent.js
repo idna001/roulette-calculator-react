@@ -1,30 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import styles from './CatComponent.module.css';
 
-const generateRandomNumber = () => {
-    return Math.floor(Math.random() * 36) + 1;
-};
-
 const CatComponent = ({ history, refreshKey }) => {
     const [numbers, setNumbers] = useState([]);
     const [isShaking, setIsShaking] = useState(false);
 
     useEffect(() => {
         setIsShaking(true);
-        const timeout = setTimeout(() => {
-            setIsShaking(false);
-        }, 500);
-        return () => clearTimeout(timeout);
-    }, [refreshKey]);
-
-    useEffect(() => {
         const storedHistory = JSON.parse(localStorage.getItem('history'));
         if (storedHistory) {
             const lastEntry = storedHistory[0];
             const lastNumbers = lastEntry.numbers;
             setNumbers(lastNumbers);
         }
+        const timeout = setTimeout(() => {
+            setIsShaking(false);
+        }, 500);
+
+        return () => clearTimeout(timeout);
     }, [refreshKey]);
+
 
     return (
         <div className={styles.catOuter}>
