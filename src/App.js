@@ -1,7 +1,6 @@
 // App.js
 import React, { useState, useEffect } from 'react';
 import InputComponent from './components/InputComponent/InputComponent';
-import TableComponent from './components/TableComponent/TableComponent';
 import CatComponent from "./components/CatComponent/CatComponent";
 import HistoryComponent from "./components/HistoryComponent/HistoryComponent";
 import {numberArray} from "./data/numberArray";
@@ -10,7 +9,6 @@ const App = () => {
     const [history, setHistory] = useState([]);
     const [numbers, setNumbers] = useState([]);
     const [refreshKey, setRefreshKey] = useState(0); // Zustand für den Komponenten-Neu-Render
-
 
     useEffect(() => {
         const storedHistory = JSON.parse(localStorage.getItem('history'));
