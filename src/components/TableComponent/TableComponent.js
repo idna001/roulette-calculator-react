@@ -31,10 +31,10 @@ const TableComponent = ({ history }) => {
                         <td colSpan="1">{calculateCrossSum(entry.sum) + 1}</td>
                     </tr>
                     <tr>
-                        <td className={styles.sum}>{entry.tempResults[0]}</td>
-                        <td className={styles.sum}>{entry.tempResults[1]}</td>
-                        <td className={styles.sum}>{entry.tempResults[2]}</td>
-                        <td className={styles.sum}>{entry.tempResults[3]}</td>
+                        <td className={styles.sum}>{entry.tempResultsCruncher[0]}</td>
+                        <td className={styles.sum}>{entry.tempResultsCruncher[1]}</td>
+                        <td className={styles.sum}>{entry.tempResultsCruncher[2]}</td>
+                        <td className={styles.sum}>{entry.tempResultsCruncher[3]}</td>
                     </tr>
                     <tr>
                         <td colSpan="7"></td>

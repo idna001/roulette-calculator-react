@@ -7,7 +7,7 @@ const CatComponent = ({ history, refreshKey }) => {
 
     useEffect(() => {
         setIsShaking(true);
-        const storedHistory = JSON.parse(localStorage.getItem('history'));
+        const storedHistory = JSON.parse(localStorage.getItem('catsHistory'));
         if (storedHistory) {
             const lastEntry = storedHistory[0];
             const lastNumbers = lastEntry.numbers;
