@@ -6,7 +6,7 @@ import { numberArray } from "../data/numberArray";
 
 const Cats = () => {
     const [catsHistory, setCatsHistory] = useState([]);
-    const [numbers, setNumbers] = useState([]);
+    const [catsNumbers, setCatsNumbers] = useState([]);
     const [refreshKey, setRefreshKey] = useState(0); // Zustand für den Komponenten-Neu-Render
 
     useEffect(() => {
@@ -16,9 +16,9 @@ const Cats = () => {
         }
         const storedNumbers = JSON.parse(localStorage.getItem('catsNumbers'));
         if (storedNumbers) {
-            setNumbers(storedNumbers);
+            setCatsNumbers(storedNumbers);
         } else {
-            setNumbers([]); // Ensure numbers is always defined
+            setCatsNumbers([]); // Ensure numbers is always defined
         }
     }, [refreshKey]);
 
@@ -74,7 +74,7 @@ const Cats = () => {
         localStorage.removeItem('catsHistory');
         localStorage.removeItem('catsNumbers');
         setCatsHistory([]);
-        setNumbers([]);
+        setCatsNumbers([]);
         setRefreshKey(prevKey => prevKey + 1);
     };
 
@@ -85,9 +85,9 @@ const Cats = () => {
             <InputComponent onSubmit={handleFormSubmit} />
             <CatComponent history={catsHistory} refreshKey={refreshKey} />
 
-            {catsHistory.length > 0 && (
+            {catsNumbers.length > 0 && (
                 <React.Fragment>
-                    <HistoryComponent numbers={numbers} refreshKey={refreshKey} />
+                    <HistoryComponent numbers={catsNumbers} refreshKey={refreshKey} />
 
                     <button onClick={handleClearStorage} className='clearButton'>
                         Clear History

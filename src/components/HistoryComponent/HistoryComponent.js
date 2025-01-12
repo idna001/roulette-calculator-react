@@ -5,7 +5,7 @@ const HistoryComponent = ({numbers, refreshKey}) => {
     const [numberPairs, setNumberPairs] = useState([]);
 
     useEffect(() => {
-        const storedNumbers = JSON.parse(localStorage.getItem('numbers')) || [];
+        const storedNumbers = JSON.parse(localStorage.getItem('catsNumbers')) || [];
         setNumberPairs(storedNumbers);
     }, [refreshKey]);
 
