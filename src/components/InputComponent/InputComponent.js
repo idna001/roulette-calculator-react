@@ -1,4 +1,3 @@
-// InputComponent.js
 import React, { useState } from 'react';
 import styles from './InputComponent.module.css';
 
@@ -51,7 +50,6 @@ const InputComponent = ({ onSubmit }) => {
                     max="36"
                     className={styles.input}
                 />
-
                 <button type="submit" className={styles.submitButton}>
                     Submit
                 </button>

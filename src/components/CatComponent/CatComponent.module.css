@@ -1,0 +1,41 @@
+.catImage {
+    width: 200px;
+    height: 200px;
+}
+@media (max-width: 768px) {
+    .catImage {
+        width: 150px;
+        height: 150px;
+    }
+}
+.catContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.catOuter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.catNumber {
+    position: absolute;
+    top: 25%;
+    left: 47%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 30px;
+}
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
