@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
 import Cruncher from "./views/cruncher";
 import Cats from "./views/cats";
 
@@ -15,8 +15,8 @@ const App = () => {
                     <Route path="/cats" element={<Cats />} />
                 </Routes>
                 <nav className='bottom-nav'>
-                    <Link to="/cruncher">Cruncher</Link>
-                    <Link to="/cats">Cats</Link>
+                    <NavLink to="/cruncher" className={({ isActive }) => isActive ? 'active' : ''}>Cruncher</NavLink>
+                    <NavLink to="/cats" className={({ isActive }) => isActive ? 'active' : ''}>Cats</NavLink>
                 </nav>
             </div>
         </Router>

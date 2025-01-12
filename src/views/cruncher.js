@@ -48,7 +48,7 @@ const Cruncher = () => {
     };
 
     return (
-        <div className='app'>
+        <div>
             <img src={require('../img/logo.png')} alt="logo" className='logo' />
             <h1 className='title'>Number Cruncher</h1>
             <InputComponent onSubmit={handleFormSubmit} />
