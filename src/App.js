@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, NavLink, Navigate } from 'react-router-dom';
 import Cruncher from "./views/cruncher";
 import Cats from "./views/cats";
 
@@ -10,7 +10,7 @@ const App = () => {
         <Router>
             <div className='app'>
                 <Routes>
-                    <Route path="/" element={<Cruncher />} />
+                    <Route path="/" element={<Navigate to="/cruncher" />} />
                     <Route path="/cruncher" element={<Cruncher />} />
                     <Route path="/cats" element={<Cats />} />
                 </Routes>
