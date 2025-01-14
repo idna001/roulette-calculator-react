@@ -7,7 +7,7 @@ import { numberArray } from "../data/numberArray";
 const Cats = () => {
     const [catsHistory, setCatsHistory] = useState([]);
     const [catsNumbers, setCatsNumbers] = useState([]);
-    const [refreshKey, setRefreshKey] = useState(0); // Zustand für den Komponenten-Neu-Render
+    const [refreshKey, setRefreshKey] = useState(0);
 
     useEffect(() => {
         const storedHistory = JSON.parse(localStorage.getItem('catsHistory'));
