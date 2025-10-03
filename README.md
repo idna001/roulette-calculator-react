@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+<h2 align="center">
+  <img alt="Demo" width="200" src="./src/img/logo.png" /><br/>
+  <a href="https://github.com/idna001" target="_blank">Andreas V</a>
+</h2>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+<br/>
 
-### `npm start`
+[![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com) &nbsp;
+[![forthebadge](https://forthebadge.com/images/badges/made-with-react.svg)](https://reactjs.org)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<h1 style="color: #01b0f2; text-align:center">Hacktoberfest 2025</h1>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h1 style="color: #01b0f2; text-align:center">Roulette Calculator – React</h1>
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🎯 About the Project
+The **Roulette Calculator** helps you find numbers you should place your bet on.  
+You enter the numbers that have recently won, and the app will suggest new numbers based on two different calculation methods.
 
-### `npm run build`
+- 🔢 Two calculation views to choose from
+- 🎨 Clean UI with React
+- 📈 Idea for training & fun, not for real gambling
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Open Tasks / Issues
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [ ] Add unit tests for both calculation methods
+- [ ] Improve mobile layout / responsiveness
+- [ ] Add History of last inputs
+- [ ] Highlight suggested numbers visually
+- [ ] Add dark / light mode toggle
+- [ ] Fix ESLint / SonarCloud warnings
+- [ ] Add share button (copy to clipboard)
+- [ ] Improve documentation with screenshots
+- [ ] See the Issues tab for more open tasks – or create your own ideas 🎉
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## How to contribute
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Fork the repo** (optional)
+2. **Clone the repository** to your local machine
+3. **Create a new branch** for your changes
+4. **Make your changes**:
+    - Add your name to the credits
+    - [Run the app](#run-the-app)
+    - [Test your changes](#test)
+5. **Push your changes** and create a Pull Request (PR)
+6. **Wait for a review** and merge the PR
+7. **Celebrate your first PR! 🎉**
+8. **Repeat and keep contributing** ;)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### <a name="run-the-app"></a> How to run the App
+1. **`npm install`**
+    - Installs all dependencies required for the project.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. **`npm start`**
+    - Runs the app in development mode.
 
-## Learn More
+3. Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### <a name="test"></a> How to test your Change
+- First on localhost while developing
+- Then on the Vercel Link of your PR
+    - Vercel will deploy your changes automatically to a new Link
+    - You can find the Link in the PR
+- Test mobile and Desktop Viewport
 
-### Code Splitting
+Have fun while celebrating Hacktober
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Lets Hack!
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to make PR and complete the readme with your changes
