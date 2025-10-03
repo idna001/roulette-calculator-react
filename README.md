@@ -75,6 +75,6 @@ You will also see any lint errors in the console.
 
 Have fun while celebrating Hacktober
 
-Lets Hack!
+Let's Hack!
 
 Feel free to make PR and complete the readme with your changes
