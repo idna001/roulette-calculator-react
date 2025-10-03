@@ -77,4 +77,4 @@ Have fun while celebrating Hacktober
 
 Let's Hack!
 
-Feel free to make PR and complete the readme with your changes
+Feel free to make a PR and complete the readme with your changes
