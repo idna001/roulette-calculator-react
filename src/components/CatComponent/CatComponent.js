@@ -5,7 +5,6 @@ const CatComponent = ({ history, refreshKey }) => {
     const [numbers, setNumbers] = useState([]);
     const [isShaking, setIsShaking] = useState(false);
 
-    // src/components/CatComponent/CatComponent.js
     useEffect(() => {
         setIsShaking(true);
         const storedHistory = JSON.parse(localStorage.getItem('catsHistory'));
@@ -23,14 +22,24 @@ const CatComponent = ({ history, refreshKey }) => {
         return () => clearTimeout(timeout);
     }, [refreshKey]);
 
-
     return (
         <div className={styles.catOuter}>
             {Array.from({ length: 7 }, (_, index) => (
                 <div className={`${styles.catContainer} ${isShaking ? styles.shake : ''}`} key={index}>
-                    <img src={require('../../img/cat.png')}
-                         className={styles.catImage}
-                         alt={`Katze ${index + 1}`} />
+                    
+                    {/* This block now handles light/dark mode images automatically */}
+                    <picture>
+                        {/* Use the white cat image if the user is in dark mode */}
+                        <source srcSet={require('../../img/darkmode_cat.png')} media="(prefers-color-scheme: dark)" />
+                        
+                        {/* Use the default black cat image for light mode */}
+                        <img 
+                            src={require('../../img/cat2.png')}
+                            className={styles.catImage}
+                            alt={`Katze ${index + 1}`} 
+                        />
+                    </picture>
+                    
                     {numbers.length > 0 && <p className={styles.catNumber}>
                         {numbers[index]}
                     </p>}
