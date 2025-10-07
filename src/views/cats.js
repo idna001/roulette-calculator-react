@@ -4,7 +4,7 @@ import CatComponent from "../components/CatComponent/CatComponent";
 import HistoryComponent from "../components/HistoryComponent/HistoryComponent";
 import { numberArray } from "../data/numberArray";
 
-const Cats = () => {
+const Cats = ({theme}) => {
     const [catsHistory, setCatsHistory] = useState([]);
     const [catsNumbers, setCatsNumbers] = useState([]);
     const [refreshKey, setRefreshKey] = useState(0);
@@ -84,7 +84,7 @@ const Cats = () => {
         <div>
             <img src={require('../img/logo.png')} alt="logo" className='logo' />
             <h1 className='title'>Lucky cats</h1>
-            <InputComponent onSubmit={handleFormSubmit} />
+            <InputComponent onSubmit={handleFormSubmit} theme = {theme}/>
             <CatComponent history={catsHistory} refreshKey={refreshKey} />
 
             {catsNumbers.length > 0 && (

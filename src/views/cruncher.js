@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import InputComponent from '../components/InputComponent/InputComponent';
 import TableComponent from '../components/TableComponent/TableComponent';
 
-const Cruncher = () => {
+const Cruncher = ({ theme }) => {
     const [history, setHistory] = useState([]);
     useEffect(() => {
         const storedHistory = JSON.parse(localStorage.getItem('history'));
@@ -51,7 +51,7 @@ const Cruncher = () => {
         <div>
             <img src={require('../img/logo.png')} alt="logo" className='logo' />
             <h1 className='title'>Number Cruncher</h1>
-            <InputComponent onSubmit={handleFormSubmit} />
+            <InputComponent onSubmit={handleFormSubmit} theme={theme} />
             {history.length > 0 && <TableComponent history={history} />}
             {history.length > 0 && (
                 <button onClick={handleClearStorage} className='clearButton'>

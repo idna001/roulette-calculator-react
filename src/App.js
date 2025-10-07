@@ -17,8 +17,8 @@ const App = () => {
 
                 <Routes>
                     <Route path="/" element={<Navigate to="/cruncher" />} />
-                    <Route path="/cruncher" element={<Cruncher />} />
-                    <Route path="/cats" element={<Cats />} />
+                    <Route path="/cruncher" element={<Cruncher theme={theme} />} /> 
+                    <Route path="/cats" element={<Cats theme={theme} />} />
                 </Routes>
 
                 <nav className='bottom-nav'>
