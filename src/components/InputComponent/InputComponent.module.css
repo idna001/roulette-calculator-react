@@ -1,14 +1,11 @@
 /* InputComponent.module.css */
 
+/* --- Container and Form Styles --- */
 .inputContainer {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
     text-align: center;
-    margin-bottom: 20px;
-}
-
-.title {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 10px;
 }
 
 .formContainer {
@@ -20,18 +17,49 @@
 .label {
     display: block;
     margin-bottom: 8px;
+    font-weight: bold;
     font-size: 16px;
-    color: #555;
-    align-content: flex-start;
+    color: inherit; /* This will make the label color match the theme (black or white) */
 }
 
+
+/* --- Base Input Style (Combined and Cleaned) --- */
 .input {
     padding: 10px;
     margin-bottom: 16px;
     width: 100%;
     box-sizing: border-box;
+    border-radius: 6px;
+    font-size: 14px;
+    border: 1px solid; /* Border color will be set by the theme class */
+    transition: all 0.3s ease;
 }
 
+.input:focus {
+    outline: none;
+    border-color: #8a2be2; /* BlueViolet focus color for both themes */
+}
+
+
+/* --- THEME-SPECIFIC STYLES --- */
+/* These classes are ADDED to the base .input class in your React component */
+
+/* Light Mode: White background, black text */
+.lightMode {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #cccccc; /* Light gray border */
+}
+
+/* Dark Mode: Black background, white text */
+.darkMode {
+    background-color: #000000; /* Pure black background */
+    color: #ffffff; /* Pure white text */
+    border-color: #444444; /* Dark gray border */
+}
+
+
+/* --- Button and Error Styles --- */
 .submitButton {
     padding: 10px;
     background-color: #d6c077;
@@ -39,6 +67,7 @@
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 100%;
 }
 
 .submitButton:hover {

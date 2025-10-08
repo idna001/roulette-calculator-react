@@ -1,64 +1,50 @@
-
-body {
-  font-family: 'Arial', sans-serif;
+/* Reset + Global Styles */
+html, body, #root {
+  height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  font-family: 'Arial', sans-serif;
 }
 
-#root {
-  display: flex;
+
+/* 🌞 Light Mode */
+.app1.light {
+  background-color: #f4f4f4;
+  color: #222;
+}
+
+/* 🌙 Dark Mode */
+.app1.dark {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+/* Titles */
+.title {
+  font-size: 40px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: inherit; /* inherits from theme */
+}
+
+/* App Container */
+.app1 {
+  width: 100%;
+  margin: 15px auto;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  background-color: inherit; /* matches theme */
+  color: inherit;
+    display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  background-color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.title {
-  color: #333;
-  font-size: 24px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.app {
-  width: 80%;
-  max-width: 830px;
-  margin: 20px auto;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-}
-
-.clearButton {
-  margin-top: 20px;
-  margin-bottom: 30px;
-  padding: 10px;
-  background-color: #d6c077;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-.clearButton:hover {
-  background-color: #93632a;
-}
-
-
-.inputContainer {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-
-.title {
-  color: #333;
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
+/* Inputs + Labels */
 .formContainer {
   display: flex;
   flex-direction: column;
@@ -66,10 +52,9 @@ body {
 }
 
 label {
-  display: block;
   margin-bottom: 8px;
   font-size: 16px;
-  color: #555;
+  color: inherit;
 }
 
 .input {
@@ -77,29 +62,54 @@ label {
   margin-bottom: 16px;
   width: 100%;
   box-sizing: border-box;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  background: #fff;
+  color: #222;
+  transition: background 0.3s, color 0.3s, border 0.3s;
 }
 
-.submitButton {
-  padding: 10px;
+.app1.dark .input {
+  background: #1f1f1f;
+  border: 1px solid #555;
+  color: #f5f5f5;
+}
+
+/* Buttons */
+.submitButton, .clearButton {
+  padding: 10px 16px;
+  margin-top: 12px;
   background-color: #d6c077;
   color: #fff;
   border: none;
+  border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.submitButton:hover {
+.submitButton:hover, .clearButton:hover {
   background-color: #93632a;
 }
 
+.app1.dark .submitButton, 
+.app1.dark .clearButton {
+  background-color: #c6a964;
+  color: #000;
+}
+
+.app1.dark .submitButton:hover,
+.app1.dark .clearButton:hover {
+  background-color: #997a3f;
+}
+
+/* Errors */
 .error {
-  color: red;
+  color: #ff4d4d;
   margin-top: 8px;
   font-size: 14px;
 }
 
-/* TableComponent.module.css */
-
+/* Table */
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -117,6 +127,16 @@ th {
   color: #fff;
 }
 
+.app1.dark th {
+  background-color: #c6a964;
+  color: #000;
+}
+
+td {
+  background-color: inherit;
+  color: inherit;
+}
+
 .calculation {
   color: #007bff;
 }
@@ -124,9 +144,10 @@ th {
 .sum {
   color: #d6c077;
 }
+
+/* Logo */
 .logo {
   height: 60px;
-  margin: 0 auto;
+  margin: 0 auto 20px;
   display: block;
-  margin-bottom: 20px;
 }

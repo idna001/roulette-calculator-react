@@ -39,3 +39,10 @@
 .shake {
     animation: shake 0.5s ease-in-out;
 }
+
+@media (prefers-color-scheme: dark) {
+  .catNumber {
+    /* Change the text color to black (for the white cat) */
+    color: black;
+  }
+}
