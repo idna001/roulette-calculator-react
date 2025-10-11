@@ -19,14 +19,41 @@ html, body, #root {
   color: #f5f5f5;
 }
 
-/* Titles */
+/* Titles
 .title {
   font-size: 40px;
   margin-bottom: 30px;
   text-align: center;
   font-weight: bold;
   color: inherit; /* inherits from theme */
+/* Paste/replace the existing .title rule with this */
+.title {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  /* golden shimmer */
+  background: linear-gradient(90deg, #b59252 0%, #e3d386 40%, #b59252 100%);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3.5s linear infinite;
+  transition: transform 0.25s ease, text-shadow 0.25s ease;
 }
+
+.title:hover {
+  transform: scale(1.04);
+  text-shadow: 0 0 14px rgba(212, 175, 55, 0.45);
+  cursor: pointer;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
 
 /* App Container */
 .app1 {
@@ -151,3 +178,4 @@ td {
   margin: 0 auto 20px;
   display: block;
 }
+
